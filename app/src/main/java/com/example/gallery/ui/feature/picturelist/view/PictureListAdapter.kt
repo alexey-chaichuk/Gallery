@@ -9,7 +9,7 @@ import coil.load
 import com.example.gallery.R
 
 class PictureListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var pics = listOf<String>()
+    private var pics = mutableListOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PictureDataViewHolder(
@@ -22,16 +22,26 @@ class PictureListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is PictureDataViewHolder -> {
-                holder.onBind(pics[position])
+                with(holder) {
+                    onBind(pics[position])
+                    itemView.setOnClickListener {
+                        remove(adapterPosition)
+                    }
+                }
             }
         }
     }
 
     override fun getItemCount(): Int = pics.size
 
-    fun bindSignals(newPics : List<String>) {
-        pics = newPics
+    fun bindPics(newPics : List<String>) {
+        pics = newPics.toMutableList()
         notifyDataSetChanged()
+    }
+
+    fun remove(position: Int) {
+        pics.removeAt(position)
+        notifyItemRemoved(position)
     }
 }
 

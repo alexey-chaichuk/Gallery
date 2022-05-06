@@ -39,6 +39,9 @@ private class PictureDataViewHolder(itemView: View) : RecyclerView.ViewHolder(it
     private val pic: ImageView = itemView.findViewById(R.id.pic_view)
 
     fun onBind(picPath: String) {
-        pic.load(picPath)
+        pic.load(picPath) {
+            placeholder(R.drawable.loading_animation)
+            error(R.drawable.ic_broken_image)
+        }
     }
 }

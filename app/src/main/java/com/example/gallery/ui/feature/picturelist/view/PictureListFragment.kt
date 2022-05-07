@@ -11,7 +11,7 @@ import com.example.gallery.R
 
 class PictureListFragment : Fragment(R.layout.fragment_picture_list) {
 
-    val randomPicsList = listOf(
+    private val randomPicsList = listOf(
         "https://picsum.photos/800/300?random=1",
         "https://picsum.photos/800/500?random=2",
         "https://picsum.photos/800/600?random=3",
@@ -28,6 +28,7 @@ class PictureListFragment : Fragment(R.layout.fragment_picture_list) {
         with(picListRv) {
             adapter = PictureListAdapter()
             (adapter as PictureListAdapter).bindPics(randomPicsList)
+            itemAnimator = RemoveItemAnimator(500)
         }
 
         with(picsSrl) {

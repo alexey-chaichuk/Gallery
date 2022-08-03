@@ -25,6 +25,7 @@ class PictureListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 with(holder) {
                     onBind(pics[position])
                     itemView.setOnClickListener {
+                        it.setOnClickListener(null)
                         remove(adapterPosition)
                     }
                 }

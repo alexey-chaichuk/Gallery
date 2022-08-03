@@ -1,8 +1,4 @@
-# Gallery
+Gallery with random pictures, with animated item removing and swipe action to restore all removed pictures
 
-<div style="width:600px ; height:800px">
-![screenshot](./docs/video/screenshot.png)
-<div>
-<div style="width:600px ; height:800px">
-![gif](./docs/video/gallery.gif)
-</div>
+<p><img src="./docs/video/Screenshot.png" align="left" height="480" width="270" ></p>
+<p><img src="./docs/video/gallery.gif" align="left" height="480" width="270" ></p>
